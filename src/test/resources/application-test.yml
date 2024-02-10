@@ -1,0 +1,13 @@
+spring:
+  # Postgres testcontainer
+  datasource:
+    url: jdbc:tc:postgresql:///codi_db?TC_INITSCRIPT=file:src/test/resources/schema.sql
+    username: root
+    password:
+    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+  jpa:
+    output:
+      ansi:
+        enabled: always
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: postgresql
