@@ -18,6 +18,3 @@ steps:
     - 'asia-northeast3'
 images:
   - 'gcr.io/$PROJECT_ID/codi-be-test:$COMMIT_SHA'
-logsBucket: 'gs://mylogsbucket'
-options:
-  logging: NONE
