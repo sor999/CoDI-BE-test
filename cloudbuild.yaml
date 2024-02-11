@@ -17,6 +17,6 @@
     - '--region'
     - 'asia-northeast3'
   options:
-    logging: CLOUD_LOGGING_ONLY
+    logging: NONE
   images:
   - 'gcr.io/$PROJECT_ID/codi-be-test:$COMMIT_SHA'
