@@ -1,13 +1,13 @@
-FROM openjdk:17-jdk-slim-buster
+FROM bellsoft/liberica-openjdk-alpine:17
 
-COPY gradlew .
-COPY gradle gradle
-COPY build.gradle .
-COPY settings.gradle .
-COPY src src
-RUN chmod +x ./gradlew
-RUN ./gradlew build --exclude-task test
+CMD ["./gradlew", "clean", "build"]
 
-COPY ./build/libs/codi-0.0.1-SNAPSHOT.jar ./app.jar
+VOLUME /tmp
+
+ARG JAR_FILE=build/libs/*.jar
+
+COPY ${JAR_FILE} app.jar
+
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=prod" ,"app.jar"]
+
+ENTRYPOINT ["java","-jar","/app.jar"]
