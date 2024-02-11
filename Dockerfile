@@ -1,4 +1,4 @@
-FROM openjdk:17-jdk-slim-buster
+FROM adoptopenjdk/openjdk17
 
 COPY gradlew .
 COPY gradle gradle
