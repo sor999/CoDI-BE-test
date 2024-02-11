@@ -1,13 +1,15 @@
-FROM adoptopenjdk/openjdk17
+FROM bellsoft/liberica-openjdk-alpine:17
 
-COPY gradlew .
-COPY gradle gradle
-COPY build.gradle .
-COPY settings.gradle .
-COPY src src
-RUN chmod +x ./gradlew
-RUN ./gradlew build --exclude-task test
+CMD ["./gradlew", "clean", "build"]
+
+VOLUME /tmp
+
+ARG JAR_FILE=build/libs/*.jar
+
+COPY ${JAR_FILE} app.jar
 
 RUN cp ./build/libs/*.jar ./app.jar
+
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "-Dspring.profiles.active=prod" ,"app.jar"]
+
+ENTRYPOINT ["java","-jar","/app.jar"]
