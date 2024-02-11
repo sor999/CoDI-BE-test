@@ -18,5 +18,3 @@
     - 'asia-northeast3'
   images:
   - 'gcr.io/$PROJECT_ID/codi-be-test:$COMMIT_SHA'
-  options:
-    logging: CLOUD_LOGGING_ONLY
